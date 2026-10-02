@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Buggy - your simple home daily-needs shopping list." />
+  <title>Buggy — Home Shopping List</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">🛒</div>
+      <div>
+        <h1>Buggy</h1>
+        <p>Home daily needs</p>
+      </div>
+    </div>
+    <button id="clearCompleted" class="ghost-btn" type="button">Clear completed</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">YOUR HOME, YOUR LIST</span>
+        <h2>Keep the household stocked.</h2>
+        <p>Add groceries, food, cleaning supplies, and anything else you need for the day.</p>
+      </div>
+      <div class="summary-card">
+        <strong id="remainingCount">0</strong>
+        <span>items left</span>
+      </div>
+    </section>
+
+    <section class="add-card" aria-labelledby="add-title">
+      <h3 id="add-title">Add an item</h3>
+      <form id="itemForm">
+        <div class="form-row">
+          <label class="sr-only" for="itemName">Item name</label>
+          <input id="itemName" name="name" type="text" placeholder="e.g. Milk, Rice, Dish soap..." maxlength="80" required />
+
+          <label class="sr-only" for="itemCategory">Category</label>
+          <select id="itemCategory" name="category">
+            <option value="Groceries">Groceries</option>
+            <option value="Food">Food</option>
+            <option value="Household">Household</option>
+            <option value="Personal">Personal</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button class="primary-btn" type="submit">+ Add item</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section" aria-labelledby="list-title">
+      <div class="section-heading">
+        <div>
+          <h3 id="list-title">Shopping list</h3>
+          <p id="listSubtitle">Nothing added yet.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter items">
+          <button class="filter active" data-filter="all" type="button">All</button>
+          <button class="filter" data-filter="active" type="button">To buy</button>
+          <button class="filter" data-filter="completed" type="button">Done</button>
+        </div>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">🧺</div>
+        <h4>Your buggy is empty</h4>
+        <p>Add your first home-needs item above.</p>
+      </div>
+
+      <ul id="itemList" class="item-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>Buggy</span>
+    <span>Simple home shopping, one list at a time.</span>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
